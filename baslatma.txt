@@ -1,0 +1,22 @@
+db için:
+mongodb ve compass yüklenir
+compass üzerinden blog isimli db yaratılır
+içine users isminde işimize yaramayacak bir collection eklenir
+
+server için:
+cd server
+npm install
+npm run start
+http://localhost:5000/
+
+client için:
+cd server
+npm install
+npm start
+http://localhost:3000/
+
+terminalde:
+terminalde ctrl+c işlemi sonlandırılır
+enter ile ilgili komut çalıştırılır
+clear ile temizlenir
+cd.. ve cd server ile ilgili klasöre girilir

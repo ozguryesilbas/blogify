@@ -1,0 +1,69 @@
+blogify isminde proje klasörü oluştur
+cd blogify
+npx create-react-app client
+client isminde klasör oluştu ve react yüklendi
+
+blogify içine server klasörü yarat
+cd server
+npm init -y
+package json oluşturuldu
+npm i --save body-parser cors express mongoose
+
+https://cloud.mongodb.com/
+üye olup free cluster yarattık
+Database Acces'den user yarattık kullanıcı adı: mongodb şifre: mongodb
+cluster, connect your application, driver node.js version 3.6 or later
+link kopyalanır
+mongodb+srv://mongodb:<password>@cluster0.jl5oa.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+şifre girilir
+mongodb+srv://mongodb:mongodb@cluster0.jl5oa.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+veya local mongo db kurulup blog isminde veritabanı yaratılıp linki projeye yapıştırılır
+db.blog --> db yaratıldı
+use blog --> blog dbsini kullan
+show databases --> dbleri göster
+db --> hangi dbdeyiz
+db.createCollection('users')
+not: veritabanı cmdden veya compasstan yaratılabilir ve rasgele isimde bir zollection yarattık, yoksa db oluşmuyor
+artık dbyi cmden de compastan de görebiliriz
+proje çalıştırılır ve aşağıdaki adrese girilir
+http://localhost:5000/
+yapılan değişiklikleri ekrana yansıması için aşağıdakini global olarak install edelim
+npm i --save nodemon 
+birde package jsondaki start scriptimizdeki node u nodemon yapalım
+
+aşağıdaki komut ile process.env.CONNECTION_URL gibi parametrelere .env dosyasından erişeceğiz
+npm i --save dotenv
+ayrıca .env isimli dosyayı oluşturup değişkenleri buraya taşıdık
+dotenv yi import edip config metodunu kullandık
+process.env ile kullandık
+
+routes, controllers ve models oluşturuldu
+aşağıdaki adresten boş Posts jsonı alındı
+http://localhost:5000/posts
+bu arada db tarafında posts diye bir collection kendiliğinden yaratılmış hibernate gibi
+
+client tarafa geçelim
+tema için @material-ui/core
+icon paketi olarak @material-ui/icons
+routing için react-router-dom
+global state managment için redux
+form işlemleri için react-hook-form
+validator olarak yup kullanalım
+tarih için moment
+ws için axios
+asenkron işlemler için thunk
+npm i --save @material-ui/core @material-ui/icons react-router-dom redux react-hook-form yup @hookform/resolvers moment axios react-redux redux-thunk
+
+ES7 React/Redux/GraphQL/React-Native snippets --> VSCode a ekleyelim
+rafce yazınca react arrow function oluşmalı
+
+client için aşağıdaki komutla çalıştıralım
+npm start
+http://localhost:3000/
+
+npm i --save-dev redux-devtools-extension
+komutu ile chrome da debug eklemiş olduk, stateleri vs görebileceğiz
+--save-dev komutu sadece dev ortamına eklentiyi yüklemiş oldu
+
+reducer, action vs ekleyelim
+chroma redx dev tools eklentisini yükleyelim
