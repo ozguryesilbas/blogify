@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {makeStyles} from "@material-ui/core";
+import FileBase64 from "react-file-base64";
 import {
     Button,
     TextField,
@@ -34,6 +35,8 @@ const postSchema = yup.object().shape({
 })
 
 const AddPostForm = ({open, handleClose}) => {
+
+    const [ file, setFile] = useState(null);
     const {register, handleSubmit, control, errors, reset} = useForm({
         resolver: yupResolver(postSchema)
     });
@@ -104,6 +107,8 @@ const AddPostForm = ({open, handleClose}) => {
                             error={errors && errors.content ? true : false}
                             fullWidth
                         />
+
+                        <FileBase64 multiple={false} onDone={({base64}) => setFile(base64)}/>
                     </form>
                 </div>
             </DialogContent>

@@ -58,6 +58,8 @@ npm uninstall --save react-hook-form
 npm i --save react-hook-form@6.12.2
 npm uninstall --save @hookform/resolvers
 npm i --save @hookform/resolvers@1.3.7
+npm i --savereact-file-base64
+
 
 ES7 React/Redux/GraphQL/React-Native snippets --> VSCode a ekleyelim
 rafce yazınca react arrow function oluşmalı
