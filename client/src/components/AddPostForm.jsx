@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {makeStyles} from "@material-ui/core";
 import FileBase64 from "react-file-base64";
+import { useDispatch} from "react-redux";
 import {
     Button,
     TextField,
@@ -36,10 +37,23 @@ const postSchema = yup.object().shape({
 
 const AddPostForm = ({open, handleClose}) => {
 
-    const [ file, setFile] = useState(null);
+    const dispatch  = useDispatch();
+
+    const [file, setFile] = useState(null);
     const {register, handleSubmit, control, errors, reset} = useForm({
         resolver: yupResolver(postSchema)
     });
+
+    const clearForm = () => {
+        reset();
+        setFile(null);
+        handleClose();
+    }
+
+    const onSubmit = (data) => {
+        //dispatch create post action
+        clearForm();
+    }
 
     const classes = useStyles();
     return (
@@ -51,7 +65,7 @@ const AddPostForm = ({open, handleClose}) => {
                 </DialogContentText>
 
                 <div className={classes.root}>
-                    <form noValidate autoComplete="off">
+                    <form noValidate autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
                         <TextField
                             id="title"
                             label="Başlık"
@@ -114,10 +128,10 @@ const AddPostForm = ({open, handleClose}) => {
             </DialogContent>
 
             <DialogActions>
-                <Button color="inherit">
+                <Button color="inherit" onClick={clearForm}>
                     Vazgeç
                 </Button>
-                <Button variant="outlined" type="submit" color="primary">
+                <Button variant="outlined" type="submit" color="primary" onClick={() => handleSubmit(onSubmit) ()}>
                     Yayınla
                 </Button>
             </DialogActions>
