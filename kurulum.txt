@@ -67,3 +67,6 @@ komutu ile chrome da debug eklemiş olduk, stateleri vs görebileceğiz
 
 reducer, action vs ekleyelim
 chroma redx dev tools eklentisini yükleyelim
+
+intellij idea da rsc komutu ile component yaratmak için react snippets isimli plugin yüklenir
+visual studio code da rafce komutu kullanılır

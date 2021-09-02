@@ -2,6 +2,8 @@ import React from 'react';
 import {CssBaseline, Container, Grid, AppBar, Toolbar, Typography, Button, IconButton} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core";
 import PenIcon from "@material-ui/icons/Create";
+import {BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
+import PostsList from "./components/PostsList";
 
 const useStyles = makeStyles((theme) => (
     {
@@ -21,7 +23,7 @@ const useStyles = makeStyles((theme) => (
 ));
 
 const App = () => {
-  const classes = useStyles();
+    const classes = useStyles();
 
     return (
         <>
@@ -31,16 +33,28 @@ const App = () => {
                     <Toolbar>
                         <IconButton edge="start" className={classes.container} color="inherit"/>
                         <Typography variant="h6" color="secondary" className={classes.title}>
-                          <a href="http://localhost/3000/posts">
-                            Blogify
-                          </a>
+                            <a href="http://localhost/3000/posts">
+                                Blogify
+                            </a>
                         </Typography>
 
-                      <Button color="primary" variant="outlined" startIcon={<PenIcon/>}>
-                        Yeni Yazı
-                      </Button>
+                        <Button color="primary" variant="outlined" startIcon={<PenIcon/>}>
+                            Yeni Yazı
+                        </Button>
                     </Toolbar>
                 </AppBar>
+
+                <Grid container className={classes.container}>
+                    <Grid item xs={12}>
+                        <Router>
+                            <Switch>
+                                <Route exact path="/posts" component={PostsList}/>
+                            </Switch>
+
+                            <Redirect from="/" to="/posts"/>
+                        </Router>
+                    </Grid>
+                </Grid>
             </Container>
         </>
     );
