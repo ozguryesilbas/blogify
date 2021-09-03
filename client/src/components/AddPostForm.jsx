@@ -17,6 +17,7 @@ import {useForm, Controller} from "react-hook-form";
 import * as yup from "yup";
 import {yupResolver} from "@hookform/resolvers/yup";
 import Input from "@material-ui/core/Input";
+import { createPost } from "../actions/post";
 
 const useStyles = makeStyles(theme => ({
     paper: {
@@ -51,9 +52,9 @@ const AddPostForm = ({open, handleClose}) => {
     }
 
     const onSubmit = (data) => {
-        console.log(data);
+        console.log(data, file);
         //dispatch create post action
-        //dispatch(createPost());
+        dispatch(createPost({...data, image: file}));
         clearForm();
     }
 

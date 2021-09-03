@@ -1,0 +1,15 @@
+1- onsubmit yani post kaydetme tuşuna baslılır
+
+2- createPost actionu çalışır, yani dispatch edilir,
+2-a. action daki metodun içerisinden api deki metod çağrılır
+api deki metod axios ile servera bir http post requesti gönderir
+backend tarafı rouetes posts.js içinden express router yardımıyla gelen post requestini yakalar
+createpost controller metodu çağarılır
+post nesnesi veri tabanına mongoose yardımıyla kaydedilir
+yine aynı metotdan response olarak kaydedilen post nesnesi döndürülür
+2-b. clientdaki action metodundan süreç devam eder ve dönen değer data değişkenine yazılır
+CREATE_POST tipinde ve payload olarak post nesnesini içeren bir action fırlatılır
+
+3- bu action reducer tarafından yakalanır ve global state güncellenir
+
+4- statedeki postları kullanan componentler otomatik olarak güncellenir
