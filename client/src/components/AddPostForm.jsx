@@ -51,7 +51,9 @@ const AddPostForm = ({open, handleClose}) => {
     }
 
     const onSubmit = (data) => {
+        console.log(data);
         //dispatch create post action
+        //dispatch(createPost());
         clearForm();
     }
 
